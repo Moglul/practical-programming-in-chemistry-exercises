@@ -161,3 +161,4 @@ cython_debug/
 
 README.html
 README_files
+.DS_Store

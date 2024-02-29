@@ -2,6 +2,32 @@
 
 This week, we will set up the tools we will use throughout the course. We will start by creating a GitHub account and a repository for the course. We will then install Miniconda and create a new environment for the course. Finally, we will export the environment to a file and push it to GitHub. We will track our progress in the milestones repository (see last section).
 
+#### Summary of important general commands
+For the following exercises we will have to use the Terminal (Mac) or Powershell (Windows). Here are some basic commands that could be helpful:
+
+| Function | macOS/Linux Command | Windows Command |
+|----------|------------------------|------------------|
+| Navigate to home directory | `cd ~` | `cd %HOMEPATH%` |
+| Change directory | `cd directoryName` | `cd directoryName` |
+| Go up on folder | `cd ..` | `cd ..`|
+| Go to **directory that has spaces**| `cd "directory Name"` | `cd "directory Name"` |
+| Figure out which directory you're in | `pwd` | `pwd` |
+| List files in current directory | `ls` | `dir` |
+| Make a new directory | `mkdir directoryName` | `mkdir directoryName` |
+| Remove a file | `rm fileName` | `del fileName` |
+| Remove a directory | `rm -r directoryName` | `rd /s directoryName` |
+| Copy a file | `cp sourceFileName destinationFileName` | `copy sourceFileName destinationFileName` |
+| Move or rename a file | `mv sourceFileName destinationFileName` | `move sourceFileName destinationFileName` |
+| Display file's contents | `cat fileName` | `type fileName` |
+| Clear the command line screen | `clear` | `cls` |
+
+
+#### General advice for getting used to the command line
+
+* Whenever there is a copy-paste-able block of commands, take the time to type out each command manually. This will help you understand better what they are doing. If there's one you don't understand, search it in Google to find out what it does.
+* When you run an individual command, check the output. If there is an error message, a command is likely mistyped or doesn't make sense in that specific context. Continuing with the next command will not make sense if the previous one did not run successfully.
+* Understanding error messages is a really important aspect of programming in general, and is a skill that through practice can be developed over time. 
+
 ## GitHub
 
 GitHub is a web-based platform that allows you to store and manage your code. It is widely used by developers and data scientists to collaborate on projects and share their work with others. In this course, we will be using GitHub to store and share our code, both for the exercises as well as the milestones and final assignment.
@@ -24,16 +50,16 @@ Go to the [GitHub website](https://github.com) and sign up for an account if you
 
 > :trophy: **Milestone 1**
 >
-> Create a GitHub account. *Report in [Milestones](#milestones)*
+> Create a GitHub account. *Report in [Milestones](#milestones) by copying the link to your GitHub account.*
 
 
 ### 2. Configuration: Command Line Git
-We usually use the command line to interact with GitHub. We will look at the most common actions but here is a [cheat sheet](https://about.gitlab.com/images/press/git-cheat-sheet.pdf) for the most common commands. Make sure you have Git installed on your computer by typing `git --version` in your terminal.
+We usually use the command line to interact with GitHub. We will look at the most common actions but here is a [cheat sheet](https://about.gitlab.com/images/press/git-cheat-sheet.pdf) for the most common commands. Once you are finished setting up, make sure you have Git installed on your computer by typing `git --version` in your terminal.
 
 <details>
 <summary>Detailed steps</summary>
 
-#### MacOS
+#### ❗MacOS/Linux
 
 1. Open the Terminal app (`cmd + space` and type `terminal`). Alternatively, you can use iTerm2 or any other terminal emulator.
 2. Type:
@@ -42,13 +68,15 @@ xcode-select --install
 ```
 3. Follow the instructions to install the command line developer tools.
 
-#### Windows
+Continue with the [final steps](#final-steps-for-all).
 
-1. Download Git from the [official website](https://git-scm.com/download/win) (choose the 32 or 64-bit version depending on your system).
+#### ❗Windows
+
+1. Download the Git **Standalone Installer** from the [official website](https://git-scm.com/download/win) ([check if your system is in 32 or 64-bit](https://helpcenter.trendmicro.com/en-us/article/tmka-14342)).
 2. Open the downloaded file and follow the installation instructions.
-3. Launch the Git Bash terminal.
+3. Launch the Git Bash terminal from your applications.
 
-#### Both: Final steps
+#### Final steps for all
 4. Check that Git is installed by typing `git --version` in your terminal.
 5. Configure your username and email address by typing the following commands in your terminal:
 ```bash
@@ -79,7 +107,7 @@ A profile README is a special repository that is automatically displayed on your
 
 > :trophy: **Milestone 2**
 >
-> Create a GitHub Profile Page. *Report in [Milestones](#milestones)*
+> Create a GitHub Profile Page. *Report the link to your personal README in [Milestones](#milestones)*
 
 ### 4. GitHub Basics: Create a Repository
 Finally, we will create our first repository and update it via the command line. Please make sure to create a public repository (so the TAs can see it) and to add a README file.
@@ -89,14 +117,27 @@ Finally, we will create our first repository and update it via the command line.
 1. Go to the GitHub website and click on the `+` in the top right corner and then `New repository`.
 2. Name the repository `ppchem` and select the `Public` option. Also check the box to `Initialize this repository with a README`.
 
+#### Create a `Personal Access Token` (PAT)
+
+Git will ask for your password when you clone a repository (next step). In order ot increase security, GitHub requires one to add a password that is different from your login password. For that, we can create a PAT like so:
+
+3. Go to the GitHub website and click on your profile in the upper right corner and then `⚙️ Settings`
+4. Scroll to the end of the option bar on the left and click on `<> Developer settings` > `🔑 Personal access tokens` > `Tokens (classic)`
+5. Next, in the upper right, click on `Generate new token` and choose the classic version.
+6. Give the PAT a name and select the needed options like in the example below and then hit the `Generate token` at the bottom. ![PAT](../assets/PAT.png)
+7. **❗Copy the PAT now to a save location❗** You will need this code later when prompted for a password. It will start with `ghp_` followed by a bunch of numbers and letters.
+
 #### Cloning the repository
 
-3. Open your terminal and navigate to the directory where you want to store the repository.
-4. Type the following command to clone (download) the repository to your local machine:
+8. Open your terminal and **navigate to the directory where you want to store the repository** (replace `~/git` with that folder). This is often a folder called `git` in your home directory (`~`). You have to create the folder with e.g. `mkdir git` if it does not exist yet.
 ```bash
-git clone https://github.com/username/ppchem.git # Replace with your GitHub username
+cd ~/git
 ```
-4. Navigate into the repository by typing `cd ppchem`.
+9. Type the following command to clone (download) the repository to your local machine (don't forget to replace `username` with your username):
+```bash
+git clone https://github.com/username/ppchem.git
+```
+10. Navigate into the repository by typing `cd ppchem`.
 
 In order to clone any repository, you need to have the URL of the repository. You can find the URL by clicking on the green `Code` button on the repository's page.
 
@@ -104,13 +145,13 @@ In order to clone any repository, you need to have the URL of the repository. Yo
 
 Whenever you make changes to your repository, you need to commit them to save the changes to the repository's history.
 
-5. Add an image of your favorite molecules to the repository directory. Your TAs recommend `Caffeine` :coffee:.
-6. Type the following command to stage the changes:
+11. Add an image from the internet of your favorite molecule to the repository directory on your computer. Your TAs recommend `Caffeine` :coffee:. You can do this by drag and drop on your file system or by using the `mv` command shown in the [command table](#summary-of-important-general-commands) after downloading an image.
+12. Type one of the following commands to stage the changes:
 ```bash
-git add caffeine.png # stages only the added file - replace with the file name
+git add caffeine.png # stages only the added file - replace with the actual file name
 git add . # stages all changes if you adapted more files
 ```
-7. Type the following command to commit the changes:
+13. Type the following command to commit the changes:
 ```bash
 git commit -m "Some message" # Replace with a meaningful message
 ```
@@ -119,7 +160,7 @@ git commit -m "Some message" # Replace with a meaningful message
 
 For now, we only made changes to the local repository and committed them (prepared them for upload). We need to push the changes to GitHub to make them available to others.
 
-8. Type the following command to push the changes to GitHub:
+14. Type the following command to push the changes to GitHub:
 ```bash
 git push origin main # Replace with the branch name if you are not on the main branch
 ```
@@ -128,32 +169,33 @@ You can check the status of your repository at any time by typing `git status` i
 
 > :trophy: **Milestone 3**
 >
-> commit and push a change. *Report in [Milestones](#milestones)*
+> commit and push a change. *Report the commit link in [Milestones](#milestones)*
 
 #### Working with branches
 
-9. Type the following command to create a new branch:
+15. Type the following command to create a new branch and switch to it:
 ```bash
 git checkout -b new-branch-name
 ```
-10. Type the following command to switch to an existing branch:
+16. Publish the branch to GitHub by typing:
 ```bash
-git checkout new-branch-name
+git push -u origin new-branch-name
 ```
-11. Publish the branch to GitHub by typing:
+
+Changing branches locally will change the version that you have access to locally. So if you have a specific file only in the new branch you cannot find it in `main` and therefore also not push changes from there. If you simply want to switch branch, type:
 ```bash
-git push origin new-branch-name
+git checkout <branch-name>
 ```
 
 > :trophy: **Milestone 4**
 >
-> Create a new branch. *Report in [Milestones](#milestones)*
+> Create a new branch. *Report the link to the new branch in [Milestones](#milestones)*
 
 #### Pulling changes from GitHub
 
 If you are working on a repository with others, you might want to pull the changes they made to your local repository. You can do this by typing `git pull` in your terminal in the folder of the repository.
 
-## (Optional) Introduction to Pull Requests
+### (Optional) Introduction to Pull Requests
 
 A pull request is a important feature in collaborating with Git and GitHub. It's the way you can suggest changes you've made in a branch to be reviewed and potentially merged into another branch, usually the main branch.
 
@@ -206,10 +248,15 @@ Remember, the best way to become comfortable with Git is practice. Try using the
 
 ## Conda
 
-### 1. Download and install Miniconda
-We will use Miniconda to manage our Python environment. Miniconda is a smaller version of Anaconda, a popular Python distribution. It comes with the `conda` package manager, which allows you to install, update, and remove packages from your environment and importantly share your environment with others.
+### 1. Download and install Anaconda
+We will use Anaconda to manage our Python environment. Anaconda is a popular Python distribution that comes with the `conda` package manager, which allows you to install, update, and remove packages from your environment and importantly share your environment with others.
 
-Please follow [these instructions](https://docs.anaconda.com/free/miniconda/) to install Miniconda on your computer selecting the respective OS. Once you have installed Miniconda, you should start a new terminal and check your installation by typing `conda --help`, which should display the help message for `conda`.
+Here's how to download Anaconda:
+
+1. Navigate to [Anaconda's download page](https://www.anaconda.com/products/distribution#Downloads).
+2. Choose the graphical installer for your operating system (Windows, macOS, or Linux). ❗MacOS❗: [Check if you have an Intel or M1/M2 chip](https://help.arcstudiopro.com/all-how-tos/how-do-i-know-if-my-mac-has-intel-processor-or-apple-m1) and select the respective download.
+3. Run the downloaded file and follow the installation instructions. ❗Windows❗: Once you get prompted if you want to store conda in your path **choose to add it to you `PATH`** as in the _Alternative Option_ below: ![windows_path](../assets/windows_conda_path.png)
+5. Verify installation by typing `conda --version` in your Terminal or PowerShell. ❗Windows❗: If you did not add conda to your `PATH` you will have to use the `Anaconda Prompt Shell` downloaded to your applications.
 
 ### 2. Create a new environment
 
@@ -245,9 +292,11 @@ Once you have installed all necessary packages, you should export the environmen
 <details>
 <summary>Solution: Commands</summary>
 
+Don't forget to reaplce `path/to/ppchem` with your path!
+
 ```bash
-cd path/to/ppchem
-git checkout -b main # Make sure to be on the main branch
+cd <path/to/ppchem>
+git checkout main # Make sure to be on the main branch
 conda activate ppchem
 conda env export > env.yml
 git add env.yml
@@ -259,7 +308,7 @@ git push origin main
 
 > :trophy: **Milestone 5**
 >
-> Create a conda environment. *Report in [Milestones](#milestones)*
+> Create a conda environment. *Report the link to the pushed conda file in [Milestones](#milestones)*
 
 ### Some useful commands
 
