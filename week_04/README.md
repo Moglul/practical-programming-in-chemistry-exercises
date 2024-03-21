@@ -5,7 +5,7 @@ we'll be learning about the Python modules `numpy`, `pandas`, and `matplotlib`.
 
 If you think back to week 1, when we set up our conda environment, you'll remember that
 we installed certain packages. More specifically, in the file
-(week_01/README.md)[https://github.com/schwallergroup/practical-programming-in-chemistry-exercises/tree/main/week_01],
+[week_01/README.md](https://github.com/schwallergroup/practical-programming-in-chemistry-exercises/tree/main/week_01),
 we ran the following commands:
 
 ```
@@ -50,14 +50,14 @@ and you should be able to see `numpy` and `pandas` there.
 ## Milestone: installing new packages and updating the environment file
 
 **Note**: this section assumes that you are up to date with your milestones, and have
-pushed your exported environment file to your *personal fork* of the
-`practical-programming-in-chemistry-milestones` repository. If this is not the case,
+pushed your exported environment file to your personal
+`ppchem` repository. If this is not the case,
 make sure you have followed all of the instructions in the Week 1 exercises.
 
 Then, follow these instructions:
 
 1. In your terminal / powershell application, navigate to your personal
-`<username>/practical-programming-in-chemistry-milestones` repository.
+`<username>/ppchem` repository.
 1. Make sure you have activated your environment: `conda activate ppchem` (or whatever
    you named your env)
 1. Install the new package: `pip install matplotlib`
@@ -77,34 +77,63 @@ Then, follow these instructions:
    update-env`
    
 Navigate to your repository on Github, at URL:
-`https://github.com/<username>/practical-programming-in-chemistry-milestones`. You should
-see a green button "Compare & pull request" like below:
+`https://github.com/<username>/ppchem`. You should
+see a page like this:
 
-![Pull Request 1](../assets/week_04_pull_request/pull_request_1.png)
+![Pull Request 1](../assets/week_04_pull_request/1.png)
 
-Click this, and you'll arrive at the `Comparing changes` screen:
+Click the branch drop down menu where it says "main" to select a branch, and select the
+branch "update-env":
 
-![Pull Request 2](../assets/week_04_pull_request/pull_request_2.png)
+![Pull Request 2](../assets/week_04_pull_request/2.png)
 
-As we want to update our personal fork of the repository, not the repository owned by
-`schwallergroup`, we need to change the base repository to
-`<username>/practical-programming-in-chemistry-milestones`
+You should see that your branch `update-env` is 1 commit ahead of main. We want to
+create a pull request for this branch, so will click on the "contribute" button, and
+select "Open pull request":
 
-![Pull Request 3](../assets/week_04_pull_request/pull_request_3.png)
+![Pull Request 3](../assets/week_04_pull_request/3.png)
 
-Add a short description, then click "Create pull request":
+this will open a new page for opening a pull request:
 
-![Pull Request 4](../assets/week_04_pull_request/pull_request_4.png)
+![Pull Request 4](../assets/week_04_pull_request/4.png)
 
-Hopefully you should see that "The branch has no conflicts with the base branch" (if
-not, speak to us). You can then merge your changes into the main branch by clicking
-"Merge pull request".
+Make sure you add a title and a short description of your pull request - i.e the changes
+you have made and want to merge. Then, select "Create pull request". This will take you
+to the pull request page.
+
+On this page, this is typically where code reviews will be posted. Usually, if you are
+contributing to an open source package, and want to merge some of your changes into the
+main branch of the code, someone will review your work, request changes and leave
+comments. This all happens on this page. 
+
+As this is just your personal repository and the changes to the code weren't
+significant, for now we will not do any review and just merge into main. Select "Merge
+pull request":
+
+![Pull Request 5](../assets/week_04_pull_request/5.png)
+
+and "Confirm merge":
+
+
+![Pull Request 6](../assets/week_04_pull_request/6.png)
+
+then your pull request is merged! You can safely delete the branch associated with the
+PR, as all the changes are now in main:
+
+![Pull Request 7](../assets/week_04_pull_request/7.png)
+
+The pull request is accessible in the "Pull Requests" tab of the main repository page,
+but will be in the 'closed' section.
+
+Navigate back to your main repository landing page, i.e.
+`https://github.com/<username>/ppchem` and check that the changes are there:
+
+![Pull Request 8](../assets/week_04_pull_request/8.png)
 
 Finally, update the "Open a pull request" row of your Personal Milestones table with the
 URL of the pull request.
 
 For example, the URL of my (Joe's) PR was:
-https://github.com/jwa7/practical-programming-in-chemistry-milestones/pull/2 
-
+[https://github.com/jwa7/ppchem/pull/3](https://github.com/jwa7/ppchem/pull/3)
 
 Good job! Now onto the week 4 exercises...
