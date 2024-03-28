@@ -20,14 +20,13 @@ Below is a table linking to the exercise folders for each week. Navigate to the 
 | 02 | Jupyter notebooks and Python basics | [Week 02](week_02) |
 | 03 | Advanced Python: file I/O, functions, error handling, and classes. | [Week 03](week_03) |
 | 04 | Numerical operations, data handling, data visualization: `numpy`, `pandas`, `matplotlib` | [Week 04](week_04) |
-| 05 |  | Week 05 |
-| 06 |  | Week 06 |
+| 05 | `RDKit` (part I): Reading/Writing, Descriptors, Fingerprints | [Week 05](week_05) |
+| 06 | `RDKit` (part II): Substructure matching, Conformer generation | [Week 06](week_06) |
 | 07 |  | Week 07 |
 | 08 |  | Week 08 |
 | 09 | | Week 09 |
 | 10 |  | Week 10 |
 | 11 |  | Week 11 |
 | 12 |  | Week 12 |
-
 
 **Happy coding!**
